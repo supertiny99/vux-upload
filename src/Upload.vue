@@ -12,7 +12,7 @@
       <flexbox-item :span="span" v-show="!readonly && images.length < max">
         <div class="vux-upload-bg">
           <div class="weui-uploader__input-box vux-upload-content" :class="{ loading: loading }">
-            <input v-show="!loading" ref="file" class="weui-uploader__input" value="" type="file" :accept="accept" :capture="capture" @change="onChange">
+            <input v-show="!loading" ref="file" class="weui-uploader__input" value="" type="file" :accept="accept" @change="onChange">
             <inline-loading v-show="loading"></inline-loading>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default {
           headers: this.headers,
           withCredentials: this.withCredentials
         }).then((response) => {
-          if (response.status === 200 && response.data.status === 'ok') {
+          if (response.status === 200) {
             this.onSuccess(response.data, file)
             this.loading = false
           } else {
